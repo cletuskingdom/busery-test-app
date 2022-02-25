@@ -12,18 +12,22 @@
     </head>
 
     <body>
-        <section class="container py-5">
-            <form action="" method="post">
-                @csrf
-                
-                <select class="js-example-basic-single form-control" name="state[]" multiple="multiple">
-                    <option value="Alabama">Alabama</option>
-                    <option value="Benjamin">Benjamin</option>
-                    <option value="Wyoming">Wyoming</option>
-                </select>
-        
-                <button type="submit" style="margin-top: 20px;">Submit</button>
-            </form>
+        <section class="container py-5 justify-content-center d-flex">
+            <div class="col-md-4">
+                <form action="" method="post">
+                    <h4 class="">Enter Details</h4><br>
+                    @csrf
+                    <input type="text" name="name" class="form-control mb-3">
+                    <input type="number" name="amount" class="form-control mb-3" placeholder="Enter Amount">
+                    <select class="js-example-basic-single form-control" name="state[]" multiple="multiple">
+                        <option value="Trans fare">Trans fare</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Hotel bills">Hotel bills</option>
+                    </select>
+            
+                    <button type="submit" class="btn btn-sm btn-success px-5" style="margin-top: 20px;">Submit</button>
+                </form>
+            </div>
         </section>
 
         <script>
