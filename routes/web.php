@@ -27,5 +27,12 @@ Route::post('/', function (Request $req) {
         'amount' => $req->amount,
         'entry' => $myString,
     ]);
-    return 'Done';
+    return redirect('entries');
+});
+
+Route::get('/entries', function () {
+    $data = Entry::latest()->get();
+    return view('entries', [
+        'data' => $data,
+    ]);
 });

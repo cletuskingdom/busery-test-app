@@ -12,26 +12,32 @@
     </head>
 
     <body>
-        <section class="container py-5 justify-content-center d-flex">
-            <div class="col-md-4">
-                <form action="" method="post">
-                    <h4 class="">Enter Details</h4><br>
-                    @csrf
-                    <!-- <input type="text" name="name" class="form-control mb-3"> -->
-                    <select class="form-select mb-3" name="name">
-                        <option value="First Bank">First Bank</option>
-                        <option value="GTB">GTB</option>
-                        <option value="Access Bank">Access Bank</option>
-                    </select>
-                    <input type="number" name="amount" class="form-control mb-3" placeholder="Enter Amount">
-                    <select class="js-example-basic-single form-control" name="entry[]" multiple="multiple">
-                        <option value="Trans fare">Trans fare</option>
-                        <option value="Fuel">Fuel</option>
-                        <option value="Hotel bills">Hotel bills</option>
-                    </select>
-            
-                    <button type="submit" class="btn btn-sm btn-success px-5" style="margin-top: 20px;">Submit</button>
-                </form>
+        
+        <section class="container py-5">
+            <a href="{{ url('/') }}"><- Back</a>
+
+            <div class="justify-content-center d-flex">
+                <table class="border-collapse border border-slate-400">
+                    <thead>
+                        <tr>
+                        <th class="border border-slate-300 p-2">Bank</th>
+                        <th class="border border-slate-300 p-2">Amount</th>
+                        <th class="border border-slate-300 p-2">Entries</th>
+                        <th class="border border-slate-300 p-2">Date</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        @foreach($data as $entry)
+                            <tr>
+                                <td class="border border-slate-300 p-2">{{ $entry->name }}</td>
+                                <td class="border border-slate-300 p-2">{{ $entry->amount }}</td>
+                                <td class="border border-slate-300 p-2">{{ $entry->entry }}</td>
+                                <td class="border border-slate-300 p-2">{{ $entry->created_at->format('d, M Y') }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </section>
 
