@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Entry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,12 @@ Route::get('/', function () {
 });
 
 Route::post('/', function (Request $req) {
-    return $req->state;
-    foreach ($req->state as $data) { 
-        $datas = $data;
-    }
-    return $datas;
+    $myArray = $req->entry;
+    $myString = implode(', ', $myArray);
+    Entry::create([
+        'name' => $req->name,
+        'amount' => $req->amount,
+        'entry' => $myString,
+    ]);
+    return 'Done';
 });

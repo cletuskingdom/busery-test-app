@@ -19,7 +19,7 @@
                     @csrf
                     <input type="text" name="name" class="form-control mb-3">
                     <input type="number" name="amount" class="form-control mb-3" placeholder="Enter Amount">
-                    <select class="js-example-basic-single form-control" name="state[]" multiple="multiple">
+                    <select class="js-example-basic-single form-control" name="entry[]" multiple="multiple">
                         <option value="Trans fare">Trans fare</option>
                         <option value="Fuel">Fuel</option>
                         <option value="Hotel bills">Hotel bills</option>
